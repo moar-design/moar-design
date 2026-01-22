@@ -583,6 +583,9 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         let player;
+        const VIDEO_START = 11;  // 시작 시간 (초)
+        const VIDEO_END = 120;   // 종료 시간 (초) = 2분
+        
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtube-player', {
                 videoId: 'RWzq_QU_hoM',
@@ -591,22 +594,38 @@
                     controls: 0,
                     showinfo: 0,
                     modestbranding: 1,
-                    loop: 1,
                     fs: 0,
                     cc_load_policy: 0,
                     iv_load_policy: 3,
                     autohide: 1,
                     mute: 1,
-                    start: 11,
-                    playlist: 'RWzq_QU_hoM'
+                    start: VIDEO_START
                 },
                 events: {
                     onReady: function(event) {
                         event.target.mute();
                         event.target.playVideo();
+                    },
+                    onStateChange: function(event) {
+                        // 재생 중일 때 종료 시간 체크
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            checkVideoTime();
+                        }
                     }
                 }
             });
+        }
+        
+        // 특정 구간 반복을 위한 시간 체크
+        function checkVideoTime() {
+            if (player && player.getCurrentTime) {
+                const currentTime = player.getCurrentTime();
+                if (currentTime >= VIDEO_END) {
+                    player.seekTo(VIDEO_START, true);
+                }
+            }
+            // 0.5초마다 체크
+            setTimeout(checkVideoTime, 500);
         }
 
         // Scroll to Section
