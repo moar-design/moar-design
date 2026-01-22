@@ -4,9 +4,10 @@
 
 echo "📦 오늘의집 데이터 갱신 중..."
 
-# Summary (통계 + 리뷰)
+# Summary (통계 + 리뷰) - nickname, userId 제거
 echo "  - Summary 데이터 가져오는 중..."
-curl -s "https://ohou.se/expert/contents/api/v1/myhome/23827218/summaries?addressId=61b6d8ab2d280b026ee2f98c" > data/summary.json
+curl -s "https://ohou.se/expert/contents/api/v1/myhome/23827218/summaries?addressId=61b6d8ab2d280b026ee2f98c" | \
+  jq 'walk(if type == "object" then del(.nickname, .userId) else . end)' > data/summary.json
 
 # Portfolio (포트폴리오)
 echo "  - Portfolio 데이터 가져오는 중..."
