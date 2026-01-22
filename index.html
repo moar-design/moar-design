@@ -676,6 +676,41 @@
             photos: 'https://ohou.se/expert/contents/api/v1/myhome/23827218/contents?size=24&type=2&portfolioListType=3&addressId=61b6d8ab2d280b026ee2f98c'
         };
 
+        // ============================================
+        // Fallback 데이터 (API 호출 실패 시 사용)
+        // ============================================
+        const FALLBACK_DATA = {
+            stats: { portfolioCount: 15, photoCount: 92, reviewCount: 11 },
+            portfolios: [
+                { id: 177282, image: "https://prs.ohouse.com/apne2/content/uploads/cards/project/v1-387917107859456.jpg", title: "한강이 통째로 들어온 집, 시스템 창호로 완성한 리버뷰", stat: { scrapCount: 169, viewCount: 20083 } },
+                { id: 181374, image: "https://prs.ohouse.com/apne2/content/uploads/cards/project/v1-411132753936512.jpg", title: "88평 정자동 로얄팰리스_호텔 같은 하이엔드 아파트 리모델링 스토리", stat: { scrapCount: 9, viewCount: 473 } },
+                { id: 172264, image: "https://prs.ohouse.com/apne2/content/uploads/cards/project/v1-419867830063232.jpg", title: "주방이 방이 됐고, 방이 주방이 됐습니다 👀", stat: { scrapCount: 100, viewCount: 4850 } },
+                { id: 187831, image: "https://prs.ohouse.com/apne2/content/uploads/cards/project/v1-446632055095360.jpg", title: "플랜테리어로 완성한 집｜용인 진산마을 삼성5차 50평", stat: { scrapCount: 3, viewCount: 102 } },
+                { id: 185620, image: "https://prs.ohouse.com/apne2/content/uploads/cards/project/v1-438736668209280.jpg", title: "화이트우드 인테리어 고민 끝 — 32평 여수동 센트럴타운 공개!", stat: { scrapCount: 9, viewCount: 188 } },
+                { id: 181880, image: "https://prs.ohouse.com/apne2/content/uploads/cards/project/v1-414333262082048.jpg", title: "화이트&웜그레이로 완성한 32평의 모던한 변신_위례역 푸르지오 5단지", stat: { scrapCount: 10, viewCount: 432 } }
+            ],
+            photos: [
+                { id: 1008634230, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-460045756285056.jpg" },
+                { id: 1008631557, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-459942248865920.jpg" },
+                { id: 1008609686, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-459516262469632.jpg" },
+                { id: 1008532135, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-457553957204096.jpg" },
+                { id: 1008531779, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-457550163341376.jpg" },
+                { id: 1008530577, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-457529175355520.jpg" },
+                { id: 1008371634, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-453934030123136.jpg" },
+                { id: 1008371035, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-453924263719040.jpg" },
+                { id: 1008370419, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-453914200039552.jpg" },
+                { id: 1008370090, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-453901970088000.jpg" },
+                { id: 1008318112, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-452546304553088.jpg" },
+                { id: 1008071194, image: "https://prs.ohouse.com/apne2/content/uploads/cards/v1-446211631952000.jpg" }
+            ],
+            reviews: [
+                { writer: { nickname: "S" }, description: "일정이 촉박한 가운데 상담을 요청드렸는데 꼼꼼하게 니즈를 확인해주시고 일정도 맞춰서 끝내주셔서 감사합니다. 개인사정상 시공중에 확인을 하러 방문하기가 어려웠는데 시공의 완성도나 마감처리에 대해 우려하지 않아도 될만큼 세세하게 신경써주시고 말씀드리지 못한 부분까지 더 보완해주셔서 대만족입니다:)))", images: ["https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-435094121324608.jpg","https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-435094121578624.jpg","https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-435094121406592.jpg","https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-435094121603072.jpg"] },
+                { writer: { nickname: "변" }, description: "첫 상담부터 중간 시공과정, 마지막 A/S까지 정말 만족스러웠습니다~^^ 원하는 무드를 조사하시고 필요한 부분을 다 추가한 뒤에 견적별로 나눠서 설명해주시는 부분에서 전문성이 느껴졌고 원활한 소통을 위해 밴드방에 시공 과정을 매일 사진 찍어서 자세한 설명과 함께 올려주셔서 믿음이 갔어요~!👍🏻 결과는 대만족^-^!!", images: ["https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-428831990952064.jpg","https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-428831991050240.jpg","https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-428831991234624.jpg","https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-428831991296000.jpg"] },
+                { writer: { nickname: "넙" }, description: "상담을 너무 잘해주셔서 여길 선택했어요. 동네 인테리어에 하지 않고 가까운 지인이 이곳에서 해서 따라서 했는데 만족합니다. 소소한 부분을 개인적으로 일일이 부르는것도 힘든데 팀장님 대표님께 말하면 바로 해주셔서 넘 편합니다. 더운 여름에 공사해서 많이 힘드셨을거라 생각해요. 화장실은 심플하게 잘 나와서 젤 좋았어요. 감사합니다.", images: [] },
+                { writer: { nickname: "추" }, description: "상담부터 진행까지 먼 거리에도 불구하고 필요하면 언제든지 시간빼서 달려와서 확인해주시고 시공도 엄청 깔끔하고 너무 예쁘고 좋아요. 인테리어 하면 이것저것 신경써야할게 너무 많은데 알아서 다 알아봐주시고 선택만 하게 해주시니 너무 편하고 너무 좋았습니다. 집 보양도 너무 잘해주시고 시공일자도 원하는 시간에 딱 맞춰서 해주셔서 너무 만족합니다!", images: ["https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-400749160992768.jpg","https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-400749161390080.jpg","https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-400749161746432.jpg","https://prs.ohouse.com/apne2/any/uploads/cards/expert_reviews/v1-400749162090496.jpg"] }
+            ]
+        };
+
         // 숫자 포맷팅 함수
         function formatNumber(num) {
             return num.toLocaleString('ko-KR');
@@ -816,23 +851,24 @@
         // API 호출 및 데이터 로드
         // ============================================
         async function fetchOhouseData() {
+            let useFallback = { stats: true, portfolio: true, photos: true, reviews: true };
+
             try {
                 // Summary API 호출 (통계 + 리뷰)
                 const summaryResponse = await fetch(OHOUSE_API.summary);
                 if (summaryResponse.ok) {
                     const summaryData = await summaryResponse.json();
                     console.log('✅ Summary API 로드 성공');
-                    
-                    // 통계 렌더링
                     renderStats(summaryData);
+                    useFallback.stats = false;
                     
-                    // 리뷰 렌더링
                     if (summaryData.reviews && summaryData.reviews.length > 0) {
                         renderReviews(summaryData.reviews);
+                        useFallback.reviews = false;
                     }
                 }
             } catch (error) {
-                console.warn('⚠️ Summary API 호출 실패:', error.message);
+                console.warn('⚠️ Summary API 호출 실패, fallback 사용:', error.message);
             }
 
             try {
@@ -842,10 +878,10 @@
                     const portfolioData = await portfolioResponse.json();
                     console.log('✅ Portfolio API 로드 성공:', portfolioData.contents.length + '개');
                     renderPortfolio(portfolioData.contents);
+                    useFallback.portfolio = false;
                 }
             } catch (error) {
-                console.warn('⚠️ Portfolio API 호출 실패:', error.message);
-                document.getElementById('portfolio-loading').classList.add('hidden');
+                console.warn('⚠️ Portfolio API 호출 실패, fallback 사용:', error.message);
             }
 
             try {
@@ -855,10 +891,24 @@
                     const photosData = await photosResponse.json();
                     console.log('✅ Photos API 로드 성공:', photosData.contents.length + '개');
                     renderGallery(photosData.contents);
+                    useFallback.photos = false;
                 }
             } catch (error) {
-                console.warn('⚠️ Photos API 호출 실패:', error.message);
-                document.getElementById('gallery-loading').classList.add('hidden');
+                console.warn('⚠️ Photos API 호출 실패, fallback 사용:', error.message);
+            }
+
+            // Fallback 데이터 사용
+            if (useFallback.stats) {
+                renderStats(FALLBACK_DATA.stats);
+            }
+            if (useFallback.portfolio) {
+                renderPortfolio(FALLBACK_DATA.portfolios);
+            }
+            if (useFallback.photos) {
+                renderGallery(FALLBACK_DATA.photos);
+            }
+            if (useFallback.reviews) {
+                renderReviews(FALLBACK_DATA.reviews);
             }
         }
 
