@@ -671,6 +671,11 @@
                         if (event.data === YT.PlayerState.PLAYING) {
                             checkVideoTime();
                         }
+                        // 영상이 끝나면 시작 지점으로 돌아가서 재생
+                        if (event.data === YT.PlayerState.ENDED) {
+                            player.seekTo(VIDEO_START, true);
+                            player.playVideo();
+                        }
                     }
                 }
             });
