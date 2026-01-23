@@ -762,7 +762,7 @@
                            item.title.includes(',') ? item.title.split(',').slice(1).join(',').trim() : '';
             
             return `
-                <a href="https://ohou.se/projects/${item.id}" target="_blank" 
+                <a href="https://contents.ohou.se/projects/${item.id}" target="_blank" 
                    class="group relative overflow-hidden rounded-lg aspect-[4/3] cursor-pointer reveal img-hover">
                     <img src="${item.image}" alt="${title}" 
                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -805,7 +805,7 @@
         // ============================================
         function createPhotoCard(item) {
             return `
-                <a href="https://ohou.se/cards/${item.id}" target="_blank" 
+                <a href="https://contents.ohou.se/contents/card_collections/${item.id}" target="_blank" 
                    class="group relative overflow-hidden rounded-lg aspect-square cursor-pointer">
                     <img src="${item.image}" alt="시공 사진" 
                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
